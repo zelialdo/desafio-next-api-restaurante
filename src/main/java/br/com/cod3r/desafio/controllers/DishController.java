@@ -1,5 +1,7 @@
 package br.com.cod3r.desafio.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.cod3r.desafio.dto.DishDto;
 import br.com.cod3r.desafio.model.entities.Dish;
 import br.com.cod3r.desafio.model.repository.DishRepository;
 
@@ -27,8 +30,9 @@ public class DishController {
 	}
 	
 	@GetMapping
-	public Iterable<Dish> getDish(){
-		return dishRepository.findAll();
+	public Iterable<DishDto> getDish(){
+		Iterable<Dish> dish = dishRepository.findAll();
+		return DishDto.convert((List<Dish>) dish);
 	}
 	
 	@GetMapping(path = "/category/{category}")
