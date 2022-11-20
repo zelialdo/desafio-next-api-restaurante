@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cod3r.desafio.dto.DishDto;
-import br.com.cod3r.desafio.model.entities.Dish;
+import br.com.cod3r.desafio.dto.PratosDto;
+import br.com.cod3r.desafio.model.entities.Pratos;
 import br.com.cod3r.desafio.model.repository.DishRepository;
 
 @RestController
@@ -24,19 +24,19 @@ public class DishController {
 	private DishRepository dishRepository;
 	
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-	public @ResponseBody Dish savedish(@Valid Dish dish) {
+	public @ResponseBody Pratos savedish(@Valid Pratos dish) {
 		dishRepository.save(dish);
 		return dish;
 	}
 	
 	@GetMapping
-	public Iterable<DishDto> getDish(){
-		Iterable<Dish> dish = dishRepository.findAll();
-		return DishDto.convert((List<Dish>) dish);
+	public Iterable<PratosDto> getDish(){
+		Iterable<Pratos> dish = dishRepository.findAll();
+		return PratosDto.convert((List<Pratos>) dish);
 	}
 	
 	@GetMapping(path = "/category/{category}")
-	public Iterable<Dish> getDishByCategory(@PathVariable String category){
+	public Iterable<Pratos> getDishByCategory(@PathVariable String category){
 		return dishRepository.findByCategoriaContainingIgnoreCase(category);
 	}
 	

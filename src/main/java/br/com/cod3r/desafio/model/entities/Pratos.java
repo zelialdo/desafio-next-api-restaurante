@@ -4,14 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Getter
-@Setter
-public class Dish {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Pratos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +23,8 @@ public class Dish {
 	private String categoria;
 	private String ingredientes;
 	private double preco;
-
-	public Dish() {
-		
-	}
-
-	public Dish(String nome, String categoria, String ingredientes, double preco) {
-		super();
-		this.nome = nome;
-		this.categoria = categoria;
-		this.ingredientes = ingredientes;
-		this.preco = preco;
-	}
 	
+	@ManyToOne
+	private Pedidos pedidos;
+
 }
