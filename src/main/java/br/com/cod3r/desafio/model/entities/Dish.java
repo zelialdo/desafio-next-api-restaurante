@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pratos {
+public class Dish {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

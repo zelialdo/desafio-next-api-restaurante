@@ -3,7 +3,7 @@ package br.com.cod3r.desafio.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.cod3r.desafio.model.entities.Pratos;
+import br.com.cod3r.desafio.model.entities.Dish;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ public class PratosDto {
 	private String ingredientes;
 //	private double preco;
 	
-	public PratosDto(Pratos dish) {
+	public PratosDto(Dish dish) {
 		super();
 		this.id = dish.getId();
 		this.nome = dish.getNome();
@@ -28,7 +28,7 @@ public class PratosDto {
 //		this.preco = dish.getPreco();
 	}
 	
-	public static List<PratosDto> convert(List<Pratos> dish){
+	public static List<PratosDto> convert(List<Dish> dish){
 		return dish.stream().map(PratosDto::new).collect(Collectors.toList());
 	}
 }
