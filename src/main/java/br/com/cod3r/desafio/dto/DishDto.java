@@ -11,24 +11,25 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PratosDto {
+public class DishDto {
 
 	private int id;
 	private String nome;
 	private String categoria;
 	private String ingredientes;
-//	private double preco;
+	private double preco;
 	
-	public PratosDto(Dish dish) {
+	public DishDto(Dish dish) {
 		super();
 		this.id = dish.getId();
 		this.nome = dish.getNome();
 		this.categoria = dish.getCategoria();
 		this.ingredientes = dish.getIngredientes();
-//		this.preco = dish.getPreco();
+		this.preco = dish.getPreco();
+		
 	}
 	
-	public static List<PratosDto> convert(List<Dish> dish){
-		return dish.stream().map(PratosDto::new).collect(Collectors.toList());
+	public static List<DishDto> convert(List<Dish> dish){
+		return dish.stream().map(DishDto::new).collect(Collectors.toList());
 	}
 }
