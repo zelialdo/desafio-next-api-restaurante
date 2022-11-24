@@ -23,5 +23,4 @@ public class Dish {
 	private String ingredientes;
 	private double preco;
 	
-
 }
