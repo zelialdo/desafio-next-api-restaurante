@@ -18,9 +18,14 @@ public class Dish {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+
 	private String nome;
+	
 	private String categoria;
+	
 	private String ingredientes;
+	
 	private double preco;
 	
 }
